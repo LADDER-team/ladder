@@ -58,7 +58,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(_('表示用ユーザー名'),max_length=255)
     email = models.EmailField(_('email address'), unique=True)
     icon = models.ImageField(_('icon'),blank=True,null=True)
-    profile = models.TextField(_('profile'))
+    profile = models.TextField(_('profile'),blank=True)
 
 
     is_staff = models.BooleanField(

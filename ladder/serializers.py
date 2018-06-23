@@ -93,8 +93,6 @@ class UnitSerializer(serializers.ModelSerializer):
 
 class LinkSerializer(serializers.ModelSerializer):
 
-    user = UserSerializer()
-
     class Meta:
         model = Link
         fields = ('prior','latter','user')
@@ -108,9 +106,6 @@ class LinkSerializer(serializers.ModelSerializer):
 
 
 class LearningStatusSerializer(serializers.ModelSerializer):
-
-    user = UserSerializer()
-    unit = UnitSerializer()
 
     class Meta:
         model = LearningStatus
