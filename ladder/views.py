@@ -1,7 +1,9 @@
-from rest_framework import status,viewsets,filters
+from rest_framework import status,viewsets,filters,permissions
 from .models import Tags,User,Ladder,Unit,Link,LearningStatus
 from .serializers import TagsSerializer,LadderSerializer,UserSerializer,UnitSerializer,LinkSerializer,LearningStatusSerializer
 from django_filters import rest_framework as filters
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+
 
 
 class LadderFilter(filters.FilterSet):
@@ -12,10 +14,11 @@ class LadderFilter(filters.FilterSet):
         fields = ['creater']
 
 
-class LadderViewSet(viewsets.ModelViewSet):
+class LadderViewSet(viewsets.ModelViewSet,permissions.BasePermission):
     queryset = Ladder.objects.all().filter(is_public=True)
     serializer_class = LadderSerializer
     filter_class = LadderFilter
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class UserViewSet(viewsets.ModelViewSet):
