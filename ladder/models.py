@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.contrib.auth.base_user import BaseUserManager
 from statistics import mode
 import operator
+from django.conf import settings
 
 
 class UserManager(BaseUserManager):
@@ -111,7 +112,7 @@ class Ladder(models.Model):
     """ラダー"""
     title = models.CharField('タイトル',max_length=50)
     tags = models.ManyToManyField(Tags,blank=True,verbose_name='タグ')
-    creater = models.ForeignKey(User,verbose_name='投稿者',on_delete=models.CASCADE)
+    creater = models.ForeignKey(settings.AUTH_USER_MODEL,verbose_name='投稿者',on_delete=models.CASCADE)
     created_at = models.DateTimeField('作成日',auto_now_add=True)
     update_at = models.DateTimeField('更新日',auto_now=True)
     is_public = models.BooleanField('公開設定',default=True)
@@ -190,7 +191,7 @@ class Link(models.Model):
     """リンク"""
     prior = models.ForeignKey(Ladder,'前のラダー',related_name='prior_ladder')
     latter = models.ForeignKey(Ladder,'次のラダー',related_name='latter_ladder')
-    user = models.ForeignKey(User,'ユーザー')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,'ユーザー')
 
     def __unicode__(self):
         return self.latter.title
@@ -201,7 +202,7 @@ class Link(models.Model):
 
 class LearningStatus(models.Model):
     """学習状況"""
-    user = models.ForeignKey(User,verbose_name='ユーザー',on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,verbose_name='ユーザー',on_delete=models.CASCADE)
     unit = models.ForeignKey(Unit,verbose_name='ユニット',on_delete=models.CASCADE)
     status = models.BooleanField('学習状態')
     created_at = models.DateTimeField('作成日',default=timezone.now)

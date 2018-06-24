@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Tags,Ladder,Unit,User,Link,LearningStatus
+from django.contrib.auth.hashers import make_password
 
 
 class TagsSerializer(serializers.ModelSerializer):
@@ -19,8 +20,14 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('name','email','icon','profile','my_link','my_ladders')
-        extra_kwargs = {'password':{'read_only':True}}
+        fields = ('name','email','icon','profile','my_link','my_ladders','password')
+        extra_kwargs = {'password':{'write_only':True}}
+
+    def create(self,validated_data):
+
+        password = validated_data.get('password')
+        validated_data['password'] = make_password(password)
+        return User.objects.create(**validated_data)
 
 
     def get_my_link(self,instance):
