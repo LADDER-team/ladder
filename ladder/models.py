@@ -60,6 +60,9 @@ class Tags(models.Model):
     def __unicode__(self):
         return self.name
 
+    def __str__(self):
+        return self.name
+
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -97,7 +100,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _('users')
 
     def __unicode__(self):
-        return self.username
+        return self.name
+
+    def __str__(self):
+        return self.name
 
     def get_my_link(self):
         link_list = []
@@ -180,6 +186,7 @@ class Ladder(models.Model):
         except:
             return 0
 
+
 class Unit(models.Model):
     """ユニット"""
     title = models.CharField('タイトル',max_length=40)
@@ -194,6 +201,9 @@ class Unit(models.Model):
     def __str__(self):
         return self.title
 
+    def creater(self):
+        return self.ladder.creater
+
 
 class Link(models.Model):
     """リンク"""
@@ -205,7 +215,10 @@ class Link(models.Model):
         return self.latter.title
 
     def __str__(self):
-        return self.latter.title
+        return self.ladder.title
+
+    def creater(self):
+        return self.user
 
 
 class LearningStatus(models.Model):
@@ -216,7 +229,10 @@ class LearningStatus(models.Model):
     created_at = models.DateTimeField('作成日',default=timezone.now)
 
     def __unicode__(self):
-        return self.name+self.unit.title
+        return self.user.name+' '+self.unit.title
 
     def __str__(self):
-        return self.name+self.unit.title
+        return self.user.name+' '+self.unit.title
+
+    def creater(self):
+        return self.user

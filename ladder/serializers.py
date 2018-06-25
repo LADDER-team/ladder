@@ -7,7 +7,7 @@ class TagsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tags
-        fields = ('name',)
+        fields = ('id','name')
 
     def create(self,validated_data):
         return Tags(**validated_data)
