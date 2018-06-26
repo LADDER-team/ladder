@@ -2,7 +2,7 @@
 // Template version: 1.2.8
 // see http://vuejs-templates.github.io/webpack for documentation.
 
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   dev: {
@@ -14,7 +14,7 @@ module.exports = {
       '/api' : {
         target: 'http://localhost:8000',
         changeOrigin: true,
-        pathRewrite: {  // 開発サーバーでもDjangoのAPIにアクセスできるように設定
+        pathRewrite: {  // can used api!!!
           '^/api': 'api'
         }
       }
