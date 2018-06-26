@@ -12,3 +12,5 @@ django-filter==1.1.0
 django-filters==0.2.1
 
 djangorestframework==3.8.2
+
+djangorestframework-jwt==1.11.0
