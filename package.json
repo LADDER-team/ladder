@@ -1,0 +1,33 @@
+{
+  "name": "ladder",
+  "version": "1.0.0",
+  "description": "## 使用言語/フレームワーク python 3.6.4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LADDER-team/ladder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LADDER-team/ladder/issues"
+  },
+  "homepage": "https://github.com/LADDER-team/ladder#readme",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.16",
+    "vuex": "^3.0.1",
+    "webpack": "^4.12.1",
+    "webpack-bundle-tracker": "^0.3.0"
+  }
+}
