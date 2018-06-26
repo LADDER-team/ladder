@@ -1,7 +1,11 @@
+# IDE files
 /.idea/
+
+# python files
 /venv/
-/.DS_Store
 /.python-version
+
+# Django files
 *.log
 *.pot
 *.pyc
@@ -9,3 +13,10 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media
+
+# git files
+/.DS_Store
+
+# node files
+node_modules/
+package-lock.json
