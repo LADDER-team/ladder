@@ -27,19 +27,18 @@ class LadderViewSet(viewsets.ModelViewSet,permissions.BasePermission):
     serializer_class = LadderSerializer
     filter_class = LadderFilter
     permission_classes = (IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly)
-    authentication_classes = (BasicAuthentication,)
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly)
 
 
 class UnitViewSet(viewsets.ModelViewSet):
     queryset = Unit.objects.all()
     serializer_class = UnitSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly)
-    authentication_classes = (BasicAuthentication,)
 
 
 class TagViewSet(viewsets.ModelViewSet):
@@ -58,11 +57,9 @@ class LinkViewSet(viewsets.ModelViewSet):
     queryset = Link.objects.all()
     serializer_class = LinkSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly)
-    authentication_classes = (BasicAuthentication,)
 
 
 class LearningStatusViewSet(viewsets.ModelViewSet):
     queryset = LearningStatus.objects.all()
     serializer_class = LearningStatusSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly)
-    authentication_classes = (BasicAuthentication,)

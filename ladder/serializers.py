@@ -24,10 +24,17 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password':{'write_only':True}}
 
     def create(self,validated_data):
-
         password = validated_data.get('password')
         validated_data['password'] = make_password(password)
         return User.objects.create(**validated_data)
+
+    def update(self,instance,validate_date):
+        if 'password' in validate_date:
+            instance.set_password(validate_date['password'])
+        else:
+            instance = super().update(instance,validated_date)
+        instance.save()
+        return instance
 
 
     def get_my_link(self,instance):
@@ -89,8 +96,6 @@ class LadderSerializer(serializers.ModelSerializer):
         return instance.count_learning_number()
 
 
-
-
 class UnitSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -103,13 +108,6 @@ class LinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Link
         fields = ('prior','latter','user')
-
-    def validate(self,data):
-        user = data['user']
-        if data['latter'] in user.get_my_link().latter:
-            raise serializers.ValidationError('登録済みです')
-        return data
-
 
 
 class LearningStatusSerializer(serializers.ModelSerializer):

@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'django_filters',
-    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +126,18 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'ladder.User'
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    )
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+    ),
+    'NON_FIELD_ERRORS_KEY': 'detail',
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+}
+
+JWT_AUTH = {
+    #トークンの有効期限
+    'JWT_VERIFY_EXPIRATION': False,
 }
