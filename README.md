@@ -26,25 +26,25 @@ _時間があったら手順URLを載せます！_
 
 ### フロントサイド
 1. 必要パッケージのインストール
-> cd ladder
->
-> npm install
+    > cd ladder
+    >
+    > npm install
 
 2. 起動
-> npm run start
+    > npm run start
 
 3. `localhost:8081` でwebpack開発サーバーが立ち上がればOK
 
 ### バックサイド
 1. 'python manege.py migrate' しようとすると色々怒られる
 2. 必要なパッケージがない場合は　各々をインストール
-> pip install [package-name]
+    > pip install [package-name]
 
 3. 全部インストールし終わったらまた怒られる
-> pip install Pillow
+    > pip install Pillow
 
 4. マイグレーションファイルを作成
-> python manage.py makemigrations
+    > python manage.py makemigrations
 5. DBをマイグレーションする
-> python manage.py migrate
+    > python manage.py migrate
 6. `localhost:8000` でDjango開発サーバが立ち上がればOK
