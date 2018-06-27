@@ -4,6 +4,7 @@ from .serializers import TagsSerializer,LadderSerializer,UserSerializer,UnitSeri
 from django_filters import rest_framework as filters
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated,AllowAny,IsAdminUser
 from rest_framework.authentication import BasicAuthentication,TokenAuthentication
+from django.shortcuts import render
 
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
@@ -63,3 +64,7 @@ class LearningStatusViewSet(viewsets.ModelViewSet):
     queryset = LearningStatus.objects.all()
     serializer_class = LearningStatusSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly)
+
+
+def index(request):
+    return render(request, 'index.html', {})
