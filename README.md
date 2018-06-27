@@ -48,3 +48,4 @@ _時間があったら手順URLを載せます！_
 5. DBをマイグレーションする
     > python manage.py migrate
 6. `localhost:8000` でDjango開発サーバが立ち上がればOK
+
