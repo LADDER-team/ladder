@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
     'django_filters',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'projectl.urls'
@@ -141,3 +143,5 @@ JWT_AUTH = {
     #トークンの有効期限
     'JWT_VERIFY_EXPIRATION': False,
 }
+
+CORS_ORIGIN_ALLOW_ALL = True

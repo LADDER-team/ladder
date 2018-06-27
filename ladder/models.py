@@ -210,7 +210,7 @@ class Link(models.Model):
         return self.latter.title
 
     def __str__(self):
-        return self.ladder.title
+        return self.latter.title
 
     def creater(self):
         return self.user
