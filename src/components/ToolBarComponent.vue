@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar class="g-toolbar">
+    <v-toolbar class="g-toolbar" fixed>
         <v-toolbar-title class="g-toolbar-logo">LADDER</v-toolbar-title>
         <v-flex xs5 sm4 md2 class="g-search-wrap">
             <v-text-field

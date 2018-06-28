@@ -7,7 +7,10 @@
                 <v-layout justify-center align-start wrap class="project-wrap">
                     <v-flex md3 justify-center align-cener class="ladder-wrap">
                         <div md3 class="ladder-inner">
-                            <div v-for="item in ladderList.unit" class="ladder-item">
+                            <div v-for="item in ladderList.unit"
+                                 :class="{'ladder-item-active': ladderActive}"
+                                 v-on:click="ladderActived"
+                                 class="ladder-item">
                                 <p>unit:{{ item.index }}</p>
                                 <p>{{ item.title }}</p>
                             </div>
@@ -51,6 +54,7 @@
       fixed: false,
       miniVariant: false,
       rightDrawer: false,
+      ladderActive: false,
       defaultImage: {
         src: "http://via.placeholder.com/350x150",
         src1: "./assets/book1.jpg",
@@ -74,6 +78,16 @@
           console.log(error)
         })
     },
+    methods: {
+      ladderActived(){
+        console.log('clicked!')
+      }
+    },
+    computed: {
+      scrollY(){
+        return this.$window.scrollY
+      }
+    },
     components: {
       'ToolBar': ToolBarComponent,
       'Footer': FoorerComponent,
@@ -82,7 +96,7 @@
 </script>
 <style scoped lang="sass">
     .g-container
-        padding-top: 40px!important
+        padding-top: 100px!important
     .project-wrap
         position: relative
     .unit-wrap
@@ -123,6 +137,7 @@
         background: #CFD8DC
         padding: 10px
         border-bottom: 1px solid #546E7A
+        cursor: pointer
         p
             margin: 0
             color: #fff
