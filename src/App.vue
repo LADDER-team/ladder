@@ -15,6 +15,7 @@
                     </v-flex>
                     <v-flex md8 justify-center align-start class="unit-wrap">
                         <div v-for="unit in ladderList.unit" class="unit-item">
+                            <p class="unit-head">unit:{{ unit.index }}</p>
                             <h2 class="unit-title">{{ unit.title }}</h2>
                             <!--<p class="unit-point"><span class="unit-point-item">学習時間：8日</span></p>-->
                             <!--<p class="unit-point"><span class="unit-point-item">金額：2916円</span></p>-->
@@ -87,8 +88,12 @@
     .unit-wrap
         margin: 0 0 0 60px
         align-items: flex-start
+    .unit-head
+        margin: 0
+        font-size: 18px
+        color: #B0BEC5
     .unit-item
-        padding: 40px 30px
+        padding: 30px 30px 40px
         margin: 0 0 60px
         height: 90vh
         background: #fff
@@ -122,6 +127,8 @@
             margin: 0
             color: #fff
             font-weight: bold
+        &:last-of-type
+            border-bottom: none
     .ladder-item-active
         background: #64B5F6
     .ladder-inner
