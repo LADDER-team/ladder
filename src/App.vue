@@ -6,9 +6,11 @@
             <v-container fluid fill-height class="g-container">
                 <v-layout justify-center align-start wrap class="project-wrap">
                     <v-flex md3 justify-center align-cener class="ladder-wrap">
-                        <div v-for="item in ladderList.unit" class="ladder-item">
-                            <p>unit:{{ item.index }}</p>
-                            <p>{{ item.title }}</p>
+                        <div class="ladder-inner">
+                            <div v-for="item in ladderList.unit" class="ladder-item">
+                                <p>unit:{{ item.index }}</p>
+                                <p>{{ item.title }}</p>
+                            </div>
                         </div>
                     </v-flex>
                     <v-flex md8 justify-center align-start class="unit-wrap">
@@ -50,6 +52,9 @@
       rightDrawer: false,
       defaultImage: {
         src: "http://via.placeholder.com/350x150",
+        src1: "./assets/book1.jpg",
+        src2: "./assets/book2.jpg",
+        src3: "./assets/book3.jpg",
         alt: "placeholder-image"
       },
       title: 'Vuetify.js',
@@ -117,4 +122,6 @@
             font-weight: bold
     .ladder-item-active
         background: #64B5F6
+    .ladder-inner
+        position: fixed
 </style>
