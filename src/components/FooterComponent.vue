@@ -3,7 +3,7 @@
             app
             fixed
             class="g-footer">
-      <span class="g-footer-text">&copy; 2018</span>
+      <span class="g-footer-text">&copy; Ladder</span>
     </v-footer>
 </template>
 <style scoped lang="sass">
