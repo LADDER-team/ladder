@@ -6,7 +6,7 @@
             <v-container fluid fill-height class="g-container">
                 <v-layout justify-center align-start wrap class="project-wrap">
                     <v-flex md3 justify-center align-cener class="ladder-wrap">
-                        <div class="ladder-inner">
+                        <div md3 class="ladder-inner">
                             <div v-for="item in ladderList.unit" class="ladder-item">
                                 <p>unit:{{ item.index }}</p>
                                 <p>{{ item.title }}</p>
@@ -16,10 +16,10 @@
                     <v-flex md8 justify-center align-start class="unit-wrap">
                         <div v-for="unit in ladderList.unit" class="unit-item">
                             <h2 class="unit-title">{{ unit.title }}</h2>
-                            <p class="unit-point"><span class="unit-point-item">学習時間：8日</span></p>
-                            <p class="unit-point"><span class="unit-point-item">金額：2916円</span></p>
+                            <!--<p class="unit-point"><span class="unit-point-item">学習時間：8日</span></p>-->
+                            <!--<p class="unit-point"><span class="unit-point-item">金額：2916円</span></p>-->
                             <v-flex class="unit-image-wrap" justify-center align-center>
-                                <img :src="defaultImage.src"
+                                <img src="./assets/book1.jpg"
                                      :alt="defaultImage.alt"
                                      class="unit-image">
                             </v-flex>
@@ -90,6 +90,7 @@
     .unit-item
         padding: 40px 30px
         margin: 0 0 60px
+        height: 90vh
         background: #fff
     .unit-title
         margin: 0 0 30px
@@ -105,6 +106,7 @@
         text-align: center
     .unit-image
         margin: 0 auto
+        max-width: 40%
     .unit-description
         font-size: 18px
         border-left: 3px solid #64B5F6
