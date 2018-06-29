@@ -60,7 +60,13 @@ class LadderViewSet(viewsets.ModelViewSet,permissions.BasePermission):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly)
+
+    def get_permissions(self):
+        if self.action in ('list','retrieve','create'):
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsOwnerOrReadOnly]
+        return [permission() for permission in permission_classes]
 
 
 class UnitViewSet(viewsets.ModelViewSet):
