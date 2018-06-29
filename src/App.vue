@@ -1,6 +1,6 @@
 <!--suppress ALL -->
 <template>
-    <v-app id="inspire" indigo>
+    <v-app id="inspire" indig　v-scroll="onScroll">
         <ToolBar/>
         <v-content>
             <v-container fluid fill-height class="g-container">
@@ -16,12 +16,10 @@
                             </div>
                         </div>
                     </v-flex>
-                    <v-flex md8 justify-center align-start class="unit-wrap">
+                    <v-flex ｂmd8 justify-center align-start class="unit-wrap">
                         <div v-for="unit in ladderList.unit" class="unit-item">
                             <p class="unit-head">unit:{{ unit.index }}</p>
                             <h2 class="unit-title">{{ unit.title }}</h2>
-                            <!--<p class="unit-point"><span class="unit-point-item">学習時間：8日</span></p>-->
-                            <!--<p class="unit-point"><span class="unit-point-item">金額：2916円</span></p>-->
                             <v-flex class="unit-image-wrap" justify-center align-center>
                                 <img src="./assets/book1.jpg"
                                      :alt="defaultImage.alt"
@@ -32,7 +30,6 @@
                             </div>
                         </div>
                     </v-flex>
-                    <!--<v-flex md2 justify-center align-cener></v-flex>-->
                 </v-layout>
             </v-container>
         </v-content>
@@ -55,6 +52,7 @@
       miniVariant: false,
       rightDrawer: false,
       ladderActive: false,
+      offsetTop: 0,
       defaultImage: {
         src: "http://via.placeholder.com/350x150",
         src1: "./assets/book1.jpg",
@@ -81,6 +79,9 @@
     methods: {
       ladderActived(){
         console.log('clicked!')
+      },
+      onScroll (e) {
+        this.offsetTop = window.pageYOffset || document.documentElement.scrollTop
       }
     },
     computed: {
@@ -100,7 +101,6 @@
     .project-wrap
         position: relative
     .unit-wrap
-        margin: 0 0 0 60px
         align-items: flex-start
     .unit-head
         margin: 0
