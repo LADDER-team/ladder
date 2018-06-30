@@ -116,6 +116,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     def username(self):
         return self.email
 
+    @property
+    def creater(self):
+        return self
+
 
 class Ladder(models.Model):
     """ラダー"""
@@ -196,6 +200,7 @@ class Unit(models.Model):
     def __str__(self):
         return self.title
 
+    @property
     def creater(self):
         return self.ladder.creater
 
@@ -212,6 +217,7 @@ class Link(models.Model):
     def __str__(self):
         return self.latter.title
 
+    @property
     def creater(self):
         return self.user
 
@@ -229,5 +235,6 @@ class LearningStatus(models.Model):
     def __str__(self):
         return self.user.name+' '+self.unit.title
 
+    @property
     def creater(self):
         return self.user

@@ -20,7 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('name','email','icon','profile','my_link','my_ladders','password')
+        fields = ('id','name','email','icon','profile','my_link','my_ladders','password')
         extra_kwargs = {'password':{'write_only':True}}
 
     def create(self,validated_data):
@@ -100,18 +100,18 @@ class UnitSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Unit
-        fields = ('title','description','ladder','url','index')
+        fields = ('id','title','description','ladder','url','index')
 
 
 class LinkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Link
-        fields = ('prior','latter','user')
+        fields = ('id','prior','latter','user')
 
 
 class LearningStatusSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = LearningStatus
-        fields = ('user','unit','status','created_at')
+        fields = ('id','user','unit','status','created_at')
