@@ -16,7 +16,7 @@
                             </div>
                         </div>
                     </v-flex>
-                    <v-flex ｂmd8 justify-center align-start class="unit-wrap">
+                    <v-flex md8 justify-center align-start class="unit-wrap">
                         <div v-for="unit in ladderList.unit" class="unit-item">
                             <p class="unit-head">unit:{{ unit.index }}</p>
                             <h2 class="unit-title">{{ unit.title }}</h2>
