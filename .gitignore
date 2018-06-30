@@ -5,6 +5,9 @@
 /venv/
 /.python-version
 
+# default git files
+/.DS_Store
+
 # Django files
 *.log
 *.pot
@@ -12,7 +15,7 @@
 __pycache__/
 local_settings.py
 db.sqlite3
-media
+media/
 
 # git files
 /.DS_Store
@@ -20,4 +23,7 @@ media
 # node files
 node_modules/
 package-lock.json
+
+# task runner dist files
 dist/
+.cache/
