@@ -4,8 +4,5 @@
     </v-footer>
 </template>
 <style scoped lang="sass">
-    .g-footer
-        background: #BBDEFB
-    .g-footer-text
-        margin: 0 auto
+    @import "../assets/styles/footer"
 </style>

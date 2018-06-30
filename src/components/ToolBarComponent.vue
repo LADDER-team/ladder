@@ -33,7 +33,7 @@
                     :size=40
                     color="grey lighten-4"
                 >
-                    <img src="../assets/logo.png" alt="avatar">
+                    <img src="../assets/img/logo.png" alt="avatar">
                 </v-avatar>
             </v-flex>
         </v-toolbar-items>
@@ -47,25 +47,5 @@
 </script>
 
 <style scoped lang="sass">
-    .g-toolbar
-        background: #4694F2
-    .g-toolbar-logo
-        color: #fff
-    .g-search-wrap
-        padding: 10px 0
-        margin: 0 0 0 30px
-    .g-search-field
-        padding: 5px 10px 0
-        background: #fff
-        border-radius: 30px
-    .input-group__details
-        display: none
-    .avatar-wrap
-        margin: 0 0 0 30px
-    .contribution-btn
-        background-color: #64B5F6!important
-        max-height: 30px
-        height: 30px
-        color: #fff
-        font-weight: bold
+    @import "../assets/styles/toolbar"
 </style>
