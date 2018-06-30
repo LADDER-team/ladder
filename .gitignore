@@ -1,7 +1,7 @@
 # IDE files
 /.idea/
 
-# py files
+# python files
 /venv/
 /.python-version
 
@@ -16,6 +16,9 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media/
+
+# git files
+/.DS_Store
 
 # node files
 node_modules/
