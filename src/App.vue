@@ -68,7 +68,7 @@
       }]
     }),
     mounted(){
-      axios.get('/api/ladder/6')
+      axios.get('/api/ladder/15')
         .then((response) => {
           this.ladderList = response.data
         })
