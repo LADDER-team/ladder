@@ -207,8 +207,8 @@ class Unit(models.Model):
 
 class Link(models.Model):
     """リンク"""
-    prior = models.ForeignKey(Ladder,'前のラダー',related_name='prior_ladder')
-    latter = models.ForeignKey(Ladder,'次のラダー',related_name='latter_ladder')
+    prior = models.ForeignKey(Ladder,related_name='prior_ladder',on_delete=models.CASCADE)
+    latter = models.ForeignKey(Ladder,related_name='latter_ladder',on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,'ユーザー')
 
     def __unicode__(self):
