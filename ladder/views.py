@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
 from rest_framework.authentication import BasicAuthentication,TokenAuthentication
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
+from django.shortcuts import render
 
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
@@ -141,3 +142,6 @@ class LearningStatusViewSet(viewsets.ModelViewSet):
             instance._prefetched_objects_cache = {}
 
         return Response(serializer.data)
+
+def index(request):
+    return render(request, 'index.html', {})
