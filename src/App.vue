@@ -21,7 +21,7 @@
                             <p class="unit-head">unit:{{ unit.index }}</p>
                             <h2 class="unit-title">{{ unit.title }}</h2>
                             <v-flex class="unit-image-wrap" justify-center align-center>
-                                <img src="assets/img/book1.jpg"
+                                <img src="./assets/img/book1.jpg"
                                      :alt="defaultImage.alt"
                                      class="unit-image">
                             </v-flex>
@@ -55,9 +55,9 @@
       offsetTop: 0,
       defaultImage: {
         src: "http://via.placeholder.com/350x150",
-        src1: "./assets/book1.jpg",
-        src2: "./assets/book2.jpg",
-        src3: "./assets/book3.jpg",
+        src1: "./assets/img/book1.jpg",
+        src2: "./assets/img/book2.jpg",
+        src3: "./assets/img/book3.jpg",
         alt: "placeholder-image"
       },
       title: 'Vuetify.js',
@@ -97,4 +97,5 @@
 </script>
 <style scoped lang="sass">
     @import "assets/styles/app"
+
 </style>

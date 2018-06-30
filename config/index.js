@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   dev: {
-
+    mode: 'develop',
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
